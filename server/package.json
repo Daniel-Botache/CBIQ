@@ -1,0 +1,11 @@
+{
+  "name": "cbiqserver",
+  "version": "1.0.0",
+  "description": "Server for CBIQ platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Daniel-Botache",
+  "license": "ISC"
+}
