@@ -1,4 +1,4 @@
-import { Model, Sequelize } from "sequelize";
+import { ModelDefined, Sequelize } from "sequelize";
 import fs from "fs";
 import path from "path";
 
@@ -18,7 +18,8 @@ if (DB_BASE && DB_USER && DB_HOST && DB_PASSWORD) {
   });
   //take the route of this file
   const basename: string = path.basename(__filename);
-  const modelDefiners: Model[] = [];
+  const modelDefiners: ((sequelize: Sequelize) => ModelDefined<any, any>)[] =
+    [];
 
   //filter and take all models from dir "models" with fs module
   fs.readdirSync(path.join(__dirname, "/models"))
@@ -30,17 +31,10 @@ if (DB_BASE && DB_USER && DB_HOST && DB_PASSWORD) {
       modelDefiners.push(require(path.join(__dirname, "/models", file)));
     });
 
-  //validation Pascal case of models
-  let entries = Object.entries(sequelize.models);
-  let capEntries = entries.map((entry) => [
-    entry[0][0].toUpperCase() + entry[0].slice(1),
-    entry[1],
-  ]);
-  // Define the models with upper case names
-  capEntries.forEach(([modelName, model]) => {
-    sequelize.define(modelName, model);
-  });
+  //define Models
+  modelDefiners.forEach((model) => model(sequelize));
 
+  const { Country, Activity } = sequelize.models;
 } else {
   throw new Error("Missing database connection details");
 }
