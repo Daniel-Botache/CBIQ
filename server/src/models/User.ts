@@ -27,5 +27,28 @@ export const User = (sequelize: Sequelize) => {
         },
       },
     },
+    imageURL: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    ban: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
+    admin: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
+    status: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+      defaultValue: false,
+    },
+    countFrom: {
+      type: DataTypes.ENUM("google", "local", "facebook"),
+      allowNull: false,
+    },
   });
 };
