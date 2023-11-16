@@ -3,8 +3,8 @@ import { DataTypes, Sequelize } from "sequelize";
 export const User = (sequelize: Sequelize) => {
   sequelize.define("Country", {
     id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
       primaryKey: true,
     },
     name: {
