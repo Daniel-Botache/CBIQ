@@ -38,3 +38,4 @@ if (DB_BASE && DB_USER && DB_HOST && DB_PASSWORD) {
 } else {
   throw new Error("Missing database connection details");
 }
+export Sequelize
