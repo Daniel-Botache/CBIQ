@@ -45,6 +45,8 @@ if (DB_BASE && DB_USER && DB_HOST && DB_PASSWORD) {
     Objective,
     Content,
     Opportunity,
+    Course,
+    PurchaseHistory,
   } = sequelize.models;
 } else {
   throw new Error("Missing database connection details");
