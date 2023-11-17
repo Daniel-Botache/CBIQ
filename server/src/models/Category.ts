@@ -1,13 +1,13 @@
 import { DataTypes, Sequelize } from "sequelize";
 
-export const Opportunities = (sequelize: Sequelize) => {
-  sequelize.define("Opportunities", {
+export const Category = (sequelize: Sequelize) => {
+  sequelize.define("Category", {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
     },
-    description: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },

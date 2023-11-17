@@ -38,13 +38,13 @@ if (DB_BASE && DB_USER && DB_HOST && DB_PASSWORD) {
     User,
     Country,
     Certificate,
-    Categories,
+    Category,
     University,
     Teacher,
     Review,
     Objective,
     Content,
-    Opportunities,
+    Opportunity,
   } = sequelize.models;
 } else {
   throw new Error("Missing database connection details");
