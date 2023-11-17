@@ -34,7 +34,7 @@ if (DB_BASE && DB_USER && DB_HOST && DB_PASSWORD) {
   //define Models
   modelDefiners.forEach((model) => model(sequelize));
 
-  const { User, Country, Certificate, Categories, University } =
+  const { User, Country, Certificate, Categories, University, Teacher } =
     sequelize.models;
 } else {
   throw new Error("Missing database connection details");
