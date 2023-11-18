@@ -1,7 +1,7 @@
 import { DataTypes, Sequelize } from "sequelize";
 
-export const Review = (sequelize: Sequelize) => {
-  sequelize.define("Review", {
+export default (sequelize: Sequelize) => {
+  return sequelize.define("Review", {
     id: {
       type: DataTypes.UUID,
       primaryKey: true,

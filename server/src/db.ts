@@ -1,13 +1,14 @@
 import { ModelDefined, Sequelize } from "sequelize";
 import fs from "fs";
 import path from "path";
+require("dotenv").config();
 
 //Data base details connection from .env
 const DB_BASE: string | undefined = process.env.DB_BASE;
 const DB_USER: string | undefined = process.env.DB_USER;
 const DB_PASSWORD: string | undefined = process.env.DB_PASSWORD;
 const DB_HOST: string | undefined = process.env.DB_HOST;
-let sequelize: Sequelize | undefined;
+let sequelize: Sequelize;
 //New instance of sequalize if .env data exist
 if (DB_BASE && DB_USER && DB_HOST && DB_PASSWORD) {
   sequelize = new Sequelize(DB_BASE, DB_USER, DB_PASSWORD, {
@@ -28,13 +29,21 @@ if (DB_BASE && DB_USER && DB_HOST && DB_PASSWORD) {
         file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".ts"
     )
     .forEach((file) => {
-      modelDefiners.push(require(path.join(__dirname, "/models", file)));
+      const modelDefiner = require(path.join(
+        __dirname,
+        "/models",
+        file
+      )).default;
+      console.log(`Model file: ${file}, content: ${modelDefiner}`);
+      modelDefiners.push(
+        require(path.join(__dirname, "/models", file)).default
+      );
     });
 
   //define Models
   modelDefiners.forEach((model) => model(sequelize));
 
-  const {
+  /*   const {
     User,
     Country,
     Certificate,
@@ -47,9 +56,8 @@ if (DB_BASE && DB_USER && DB_HOST && DB_PASSWORD) {
     Opportunity,
     Course,
     PurchaseHistory,
-  } = sequelize.models;
+  } = sequelize.models; */
 } else {
   throw new Error("Missing database connection details");
 }
-
 export default sequelize;

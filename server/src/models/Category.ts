@@ -1,7 +1,7 @@
 import { DataTypes, Sequelize } from "sequelize";
 
-export const Category = (sequelize: Sequelize) => {
-  sequelize.define("Category", {
+export default (sequelize: Sequelize) => {
+  return sequelize.define("Category", {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,

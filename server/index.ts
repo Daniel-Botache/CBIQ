@@ -1,5 +1,6 @@
 import express from "express";
 import morgan from "morgan";
+import sequelize from "./src/db";
 
 // access to PORT from .env file
 const PORT_ENV: string | undefined = process.env.PORT;
@@ -11,7 +12,9 @@ app.use(morgan("dev"));
 //Assign 3000 as default value in case PORT_ENV is undefined
 const PORT = parseInt(PORT_ENV || "3000", 10);
 
-// PORT variable used to access the server
-app.listen(PORT, () => {
-  console.log(`server running on port ${PORT}`);
+sequelize.sync({ alter: true }).then(() => {
+  app.listen(PORT, () => {
+    // PORT variable used to access the server
+    console.log(`server running on port ${PORT}`);
+  });
 });

@@ -1,7 +1,7 @@
 import { DataTypes, Sequelize } from "sequelize";
 
-export const User = (sequelize: Sequelize) => {
-  sequelize.define("Country", {
+export default (sequelize: Sequelize) => {
+  return sequelize.define("Country", {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,

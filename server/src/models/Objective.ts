@@ -1,7 +1,7 @@
 import { DataTypes, Sequelize } from "sequelize";
 
-export const Objective = (sequelize: Sequelize) => {
-  sequelize.define("Objective", {
+export default (sequelize: Sequelize) => {
+  return sequelize.define("Objective", {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,

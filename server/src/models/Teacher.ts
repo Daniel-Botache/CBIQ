@@ -1,7 +1,7 @@
 import { DataTypes, Sequelize } from "sequelize";
 
-export const Teacher = (sequelize: Sequelize) => {
-  sequelize.define("Teacher", {
+export default (sequelize: Sequelize) => {
+  return sequelize.define("Teacher", {
     id: {
       type: DataTypes.UUID,
       primaryKey: true,

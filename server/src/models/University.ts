@@ -1,7 +1,7 @@
 import { DataTypes, Sequelize } from "sequelize";
 
-export const University = (sequelize: Sequelize) => {
-  sequelize.define("University", {
+export default (sequelize: Sequelize) => {
+  return sequelize.define("University", {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,

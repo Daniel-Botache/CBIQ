@@ -1,7 +1,7 @@
 import { DataTypes, Sequelize } from "sequelize";
 
-export const Course = (sequelize: Sequelize) => {
-  sequelize.define("Course", {
+export default (sequelize: Sequelize) => {
+  return sequelize.define("Course", {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,

@@ -1,7 +1,7 @@
 import { DataTypes, Sequelize } from "sequelize";
 
-export const PurchaseHistory = (sequelize: Sequelize) => {
-  sequelize.define("PurchaseHistory", {
+export default (sequelize: Sequelize) => {
+  return sequelize.define("PurchaseHistory", {
     id: {
       type: DataTypes.UUID,
       primaryKey: true,
