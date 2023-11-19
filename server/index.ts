@@ -1,6 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import sequelize from "./src/db";
+import { routes } from "./src/routes";
 
 // access to PORT from .env file
 const PORT_ENV: string | undefined = process.env.PORT;
@@ -18,3 +19,6 @@ sequelize.sync({ alter: true }).then(() => {
     console.log(`server running on port ${PORT}`);
   });
 });
+
+//Routes init
+app.use("/", routes);
