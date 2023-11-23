@@ -5,6 +5,7 @@ import { countryRouter } from "./countryRouter/countryRouter";
 import { categoryRouter } from "./categoryRouter/categoryRouter";
 import { teacherRouter } from "./teacherRouter/teacherRouter";
 import { reviewRouter } from "./reviewRouter/reviewRouter";
+import { loginRouter } from "./loginRouter/loginRouter";
 //Router Init
 const routes = Router();
 
@@ -15,5 +16,6 @@ routes.use("/country", countryRouter);
 routes.use("/category", categoryRouter);
 routes.use("/teacher", teacherRouter);
 routes.use("/review", reviewRouter);
+routes.use("/login", loginRouter);
 
 export { routes };
