@@ -43,7 +43,7 @@ if (DB_BASE && DB_USER && DB_HOST && DB_PASSWORD) {
   //define Models
   modelDefiners.forEach((model) => model(sequelize));
 
-  /*   const {
+  const {
     User,
     Country,
     Certificate,
@@ -56,8 +56,8 @@ if (DB_BASE && DB_USER && DB_HOST && DB_PASSWORD) {
     Opportunity,
     Course,
     PurchaseHistory,
-  } = sequelize.models; */
+  };
 } else {
   throw new Error("Missing database connection details");
 }
-export default sequelize;
+export { sequelize, User };
