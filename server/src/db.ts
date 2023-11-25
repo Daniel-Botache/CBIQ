@@ -39,25 +39,25 @@ if (DB_BASE && DB_USER && DB_HOST && DB_PASSWORD) {
         require(path.join(__dirname, "/models", file)).default
       );
     });
-
   //define Models
   modelDefiners.forEach((model) => model(sequelize));
-
-  const {
-    User,
-    Country,
-    Certificate,
-    Category,
-    University,
-    Teacher,
-    Review,
-    Objective,
-    Content,
-    Opportunity,
-    Course,
-    PurchaseHistory,
-  };
 } else {
   throw new Error("Missing database connection details");
 }
-export { sequelize, User };
+
+//exporting models
+export const {
+  User,
+  Country,
+  Certificate,
+  Category,
+  University,
+  Teacher,
+  Review,
+  Objective,
+  Content,
+  Opportunity,
+  Course,
+  PurchaseHistory,
+} = sequelize.models;
+export { sequelize };
