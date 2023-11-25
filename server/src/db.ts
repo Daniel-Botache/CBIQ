@@ -29,12 +29,6 @@ if (DB_BASE && DB_USER && DB_HOST && DB_PASSWORD) {
         file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".ts"
     )
     .forEach((file) => {
-      const modelDefiner = require(path.join(
-        __dirname,
-        "/models",
-        file
-      )).default;
-      console.log(`Model file: ${file}, content: ${modelDefiner}`);
       modelDefiners.push(
         require(path.join(__dirname, "/models", file)).default
       );
@@ -46,7 +40,7 @@ if (DB_BASE && DB_USER && DB_HOST && DB_PASSWORD) {
 }
 
 //exporting models
-export const {
+const {
   User,
   Country,
   Certificate,
@@ -60,4 +54,18 @@ export const {
   Course,
   PurchaseHistory,
 } = sequelize.models;
-export { sequelize };
+export {
+  sequelize,
+  User,
+  Country,
+  Certificate,
+  Category,
+  University,
+  Teacher,
+  Review,
+  Objective,
+  Content,
+  Opportunity,
+  Course,
+  PurchaseHistory,
+};

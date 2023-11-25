@@ -1,5 +1,7 @@
-import sequelize from "./src/db";
+import { sequelize } from "./src/db";
 import { app } from "./src/app";
+import dotenv from "dotenv";
+dotenv.config();
 // access to PORT from .env file
 const PORT_ENV: string | undefined = process.env.PORT;
 
