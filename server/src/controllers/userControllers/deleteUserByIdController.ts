@@ -1,7 +1,10 @@
 import { deleteUserByIdHandler } from "../../handlers/userHandlers/deleteUserByIdHandler";
 import { Response, Request } from "express";
 
-export const deleteUserByIdController = async (req: Request, res: Response) => {
+export const deleteUserByIdController = async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
   try {
     const { id } = req.params;
     const deleteUser = await deleteUserByIdHandler(id);

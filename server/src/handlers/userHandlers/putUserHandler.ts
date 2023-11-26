@@ -1,5 +1,14 @@
 import { User } from "../../db";
 import { userDataInterface } from "../../helpers/interfaces";
+import {
+  ModelStatic,
+  ModelAttributeColumnOptions,
+  Model,
+  InferAttributes,
+  InferCreationAttributes,
+  CreationOptional,
+  Attributes,
+} from "sequelize";
 
 export const putUserHandler = async (id: string, data: userDataInterface) => {
   const { name, gender, tel, password, imageUrl } = data;

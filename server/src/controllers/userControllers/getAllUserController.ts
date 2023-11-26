@@ -1,7 +1,10 @@
 import { getAllUSerHandler } from "../../handlers/userHandlers/getAllUsersHandler";
 import { Request, Response } from "express";
 
-const getAllUSerController = async (_req: Request, res: Response<any, any>) => {
+const getAllUSerController = async (
+  _req: Request,
+  res: Response<any, any>
+): Promise<Response> => {
   try {
     const users = await getAllUSerHandler();
     return res.status(200).send(users);
