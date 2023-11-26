@@ -1,16 +1,7 @@
 import { User } from "../../db";
+import { userDataInterface } from "../../helpers/interfaces";
 
-interface data {
-  name: string;
-  gender: string;
-  tel: string;
-  email: string;
-  password: string;
-  countFrom: string;
-  imageUrl: string;
-}
-
-export const postUserHandler = async (data: data) => {
+export const postUserHandler = async (data: userDataInterface) => {
   const { name, gender, tel, email, password, countFrom, imageUrl } = data;
   const [_user, created] = await User.findOrCreate({
     where: { email },
