@@ -6,26 +6,19 @@ Español: Esta es la aplicación web para CBIQ, una plataforma de comercio elect
 
 ## Starting 🚀
 
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
-
-Mira **Deployment** para conocer como desplegar el proyecto.
+Just clone the repo
 
 ### Pre-requisitos 📋
 
-_Que cosas necesitas para instalar el software y como instalarlas_
-
-```
-Da un ejemplo
-```
+web browse, nodeJS, postgreSQL, terminal, and text-editor
 
 ### Instalación 🔧
 
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
-
-_Dí cómo será ese paso_
+on the clone folder must install packages
 
 ```
-Da un ejemplo
+npm install
+
 ```
 
 _Y repite_
