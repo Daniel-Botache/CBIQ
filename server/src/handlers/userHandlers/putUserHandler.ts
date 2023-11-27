@@ -1,9 +1,9 @@
-import { User } from "../../db";
 import { userDataInterface } from "../../helpers/interfaces";
+import { getUserByIdHandler } from "./getUserByIdHandler";
 
 export const putUserHandler = async (id: string, data: userDataInterface) => {
   try {
-    const user = await User.findByPk(id);
+    const user = await getUserByIdHandler(id);
     if (!user) {
       return false;
     }
