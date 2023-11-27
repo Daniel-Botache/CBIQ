@@ -96,6 +96,10 @@ University.hasMany(Teacher, { foreignKey: "universityId" });
 Course.belongsTo(Teacher, { foreignKey: "teacherId" });
 Teacher.hasMany(Course, { foreignKey: "teacherId" });
 
+//Category-Course
+Category.belongsToMany(Course, { through: "categoryCourses" });
+Course.belongsToMany(Category, { through: "categoryCourses" });
+
 export {
   sequelize,
   User,
