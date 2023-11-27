@@ -73,8 +73,16 @@ Review.belongsTo(User, { foreignKey: "userId" });
 User.hasMany(Review, { foreignKey: "userId" });
 
 //Course-Review
-Review.belongsTo(Course, { foreignKey: "userId" });
-Course.hasMany(Review, { foreignKey: "userId" });
+Review.belongsTo(Course, { foreignKey: "courseId" });
+Course.hasMany(Review, { foreignKey: "courseId" });
+
+//PurchaseHistory-User
+PurchaseHistory.belongsTo(User, { foreignKey: "userId" });
+User.hasMany(PurchaseHistory, { foreignKey: "userId" });
+
+//PurchaseHistory-Course
+PurchaseHistory.belongsToMany(Course, { through: "coursePurchase" });
+Course.belongsToMany(PurchaseHistory, { through: "coursePurchase" });
 
 export {
   sequelize,
