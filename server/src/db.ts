@@ -68,6 +68,14 @@ User.hasMany(Certificate, { foreignKey: "userId" });
 Certificate.belongsTo(Course, { foreignKey: "courseId" });
 Course.hasMany(Certificate, { foreignKey: "courseId" });
 
+//User-Review
+Review.belongsTo(User, { foreignKey: "userId" });
+User.hasMany(Review, { foreignKey: "userId" });
+
+//Course-Review
+Review.belongsTo(Course, { foreignKey: "userId" });
+Course.hasMany(Review, { foreignKey: "userId" });
+
 export {
   sequelize,
   User,
