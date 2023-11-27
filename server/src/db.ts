@@ -39,7 +39,7 @@ if (DB_BASE && DB_USER && DB_HOST && DB_PASSWORD) {
   throw new Error("Missing database connection details");
 }
 
-//exporting models
+//call models for describe relations
 const {
   User,
   Country,
@@ -54,6 +54,20 @@ const {
   Course,
   PurchaseHistory,
 } = sequelize.models;
+
+//relations
+//country-User
+User.belongsTo(Country, { foreignKey: "countryId" });
+Country.hasMany(User, { foreignKey: "countryId" });
+
+//User-Certificate
+Certificate.belongsTo(User, { foreignKey: "userId" });
+User.hasMany(Certificate, { foreignKey: "userId" });
+
+//Certificate-Course
+Certificate.belongsTo(Course, { foreignKey: "courseId" });
+Course.hasMany(Certificate, { foreignKey: "courseId" });
+
 export {
   sequelize,
   User,
