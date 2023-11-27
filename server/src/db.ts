@@ -100,6 +100,10 @@ Teacher.hasMany(Course, { foreignKey: "teacherId" });
 Category.belongsToMany(Course, { through: "categoryCourses" });
 Course.belongsToMany(Category, { through: "categoryCourses" });
 
+//Objective-Course
+Objective.belongsTo(Course, { foreignKey: "courseId" });
+Course.hasMany(Objective, { foreignKey: "courseId" });
+
 export {
   sequelize,
   User,
