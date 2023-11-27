@@ -5,11 +5,12 @@ export const putUserHandler = async (id: string, data: userDataInterface) => {
   try {
     const user = await User.findByPk(id);
     if (!user) {
-      return "User not found";
+      return false;
     }
     await user.update(data);
-    return "User modified";
+    return true;
   } catch (error) {
+    console.log(error);
     return "Error trying to modify the user";
   }
 };
