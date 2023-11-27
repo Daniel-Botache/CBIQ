@@ -108,6 +108,10 @@ Course.hasMany(Objective, { foreignKey: "courseId" });
 Content.belongsTo(Course, { foreignKey: "courseId" });
 Course.hasMany(Content, { foreignKey: "courseId" });
 
+//Opportunity-Course
+Opportunity.belongsTo(Course, { foreignKey: "courseId" });
+Course.hasMany(Opportunity, { foreignKey: "courseId" });
+
 export {
   sequelize,
   User,
