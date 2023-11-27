@@ -84,6 +84,10 @@ User.hasMany(PurchaseHistory, { foreignKey: "userId" });
 PurchaseHistory.belongsToMany(Course, { through: "coursePurchase" });
 Course.belongsToMany(PurchaseHistory, { through: "coursePurchase" });
 
+//User-Course
+User.belongsToMany(Course, { through: "students" });
+Course.belongsToMany(User, { through: "students" });
+
 export {
   sequelize,
   User,
