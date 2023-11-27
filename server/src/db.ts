@@ -92,6 +92,10 @@ Course.belongsToMany(User, { through: "students" });
 Teacher.belongsTo(University, { foreignKey: "universityId" });
 University.hasMany(Teacher, { foreignKey: "universityId" });
 
+//Teacher-Course
+Course.belongsTo(Teacher, { foreignKey: "teacherId" });
+Teacher.hasMany(Course, { foreignKey: "teacherId" });
+
 export {
   sequelize,
   User,
