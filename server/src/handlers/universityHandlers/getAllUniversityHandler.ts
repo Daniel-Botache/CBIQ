@@ -5,6 +5,6 @@ export const getALluniversityHandler = async () => {
     const universities = await University.findAll();
     return universities;
   } catch (error) {
-    return undefined;
+    throw new Error("Error catching universities");
   }
 };
