@@ -18,6 +18,7 @@ class DeleteController {
 
       return res.status(400).send("Data not found");
     } catch (error) {
+      console.log(error);
       return res.status(500).json({ error: "Internal Server Error" });
     }
   }
