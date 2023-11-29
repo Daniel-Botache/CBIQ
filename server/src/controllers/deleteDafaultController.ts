@@ -10,10 +10,10 @@ class DeleteController {
 
   async delete(req: Request, res: Response) {
     try {
-      const id = req.params;
+      const { id } = req.params;
       const data = await this.model.destroy({ where: { id } });
       if (data) {
-        return res.status(200).json({ data });
+        return res.status(200).send(true);
       }
 
       return res.status(400).send("Data not found");
