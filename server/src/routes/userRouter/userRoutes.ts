@@ -8,6 +8,7 @@ import { sequelize } from "../../db";
 //router init
 const userRouter = Router();
 
+//Instances for Controller Classes
 const userController = new GetController(sequelize.models.User);
 const userDeleteController = new DeleteController(sequelize.models.User);
 const userGetByIdController = new GetByIdController(sequelize.models.User);
