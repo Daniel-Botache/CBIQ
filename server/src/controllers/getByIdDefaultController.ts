@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { ModelDefined } from "sequelize";
 
-class getByIdController {
+class GetByIdController {
   private model: ModelDefined<any, any>;
   constructor(model: ModelDefined<any, any>) {
     this.model = model;
@@ -21,4 +21,4 @@ class getByIdController {
   }
 }
 
-export default getByIdController;
+export default GetByIdController;
