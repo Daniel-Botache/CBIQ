@@ -1,6 +1,5 @@
 import { Router } from "express";
 import { postUserController } from "../../controllers/userControllers/postUserController";
-//import { deleteUserByIdController } from "../../controllers/userControllers/deleteUserByIdController";
 import putUSerController from "../../controllers/userControllers/putUserController";
 import { getUserByIdController } from "../../controllers/userControllers/getUserByIdController";
 import GetController from "../../controllers/getAllDefaultController";
