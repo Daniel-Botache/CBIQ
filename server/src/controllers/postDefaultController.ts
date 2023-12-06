@@ -8,7 +8,7 @@ class PostController {
   }
   async post(req: Request, res: Response) {
     try {
-      const dataRequest = req.body.data;
+      const dataRequest = req.body;
       const data = await this.model.create(dataRequest);
     } catch (error) {}
   }
