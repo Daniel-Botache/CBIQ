@@ -8,7 +8,7 @@ export const postUserController = async (
   try {
     
     const data = req.body;
-    const user = await postUserHandler(data);
+    // const user = await postUserHandler(data);
     return res.status(200).send("Hola mundo");
   } catch (error) {
     console.log(error);
